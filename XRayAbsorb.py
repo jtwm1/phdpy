@@ -25,8 +25,8 @@ parser = argparse.ArgumentParser(description="Fits models to a GRB X-Ray Spectru
 		produces a distribution of each parameter (can't be used with cFlux) for standard or Z, cFlux fits \
 		cflux* to standard or Z models (must have cflux option in conjunction with standard or Z). \
 		Lightcurve option will create lightcurves of each GRB.")
-#parser.add_argument("rootdir", help="Directory path of the program, ensure directory string ends with /")
-#parser.add_argument("output", help="Specifying output name string for all produced objects")
+parser.add_argument("rootdir", help="Directory path of the program, ensure directory string ends with /")
+parser.add_argument("output", help="Specifying output name string for all produced objects")
 parser.add_argument("-E", "--spectrumE", type=float, nargs=2, default=[0.3, 10.0], help="Spectrum energy limits in keV, \
 		left blank defaults to 0.3 and 10.0")
 parser.add_argument("-ci", "--confidence", type=float, nargs="?", default=2.706, help="Confidence range for fit error \
@@ -43,11 +43,8 @@ parser.add_argument("-g", "--add", nargs=5, help="Fit a new GRB, adding to chode
 		TargetID GRBname GalacticColumn Redshift Type")			
 args = parser.parse_args() 
 
-#rootdir = args.rootdir
-#output = args.output
-
-rootdir = "/home/jtwm1/XRayAbsorbResearch/"
-output = "zlist_April2015_test"
+rootdir = args.rootdir
+output = args.output
 
 #---------------------------------------------------------------------------------------------------------------------#
 #User Input checks
